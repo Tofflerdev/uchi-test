@@ -1,5 +1,5 @@
 <% if @repo %>
-    <h2><%= @repo.name %></h2>
+    <h2><span class="glyphicon glyphicon-search" aria-hidden="true"></span><%= @repo.name %></h2>
     <ul>
         <% @contributors.each do |contributor| %>
             <li><%= contributor.login %></li>
