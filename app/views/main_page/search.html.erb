@@ -1,1 +1,8 @@
-<h1><%= @query %></h1>
+<% if @repo %>
+    <h2><%= @repo.name %></h2>
+    <ul>
+        <% @contributors.each do |contributor| %>
+            <li><%= contributor.login %></li>
+        <% end %>
+    </ul>
+<% end %>
