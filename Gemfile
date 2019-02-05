@@ -15,6 +15,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.4.0'
 # JQuery
 gem 'jquery-rails'
+# PDF generation
+gem 'prawn'
+# ZIP generation
+gem 'rubyzip'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

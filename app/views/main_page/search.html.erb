@@ -1,8 +1,10 @@
 <% if @repo %>
     <h2><span class="glyphicon glyphicon-search" aria-hidden="true"></span><%= @repo.name %></h2>
     <ul>
-        <% @contributors.each do |contributor| %>
-            <li><%= contributor.login %></li>
+        <% @contributors.each_with_index do |contributor, i| %>
+            <li><%= contributor.login %> <%= link_to "Download", controller: "main_page", action: "download", format: :pdf, name: "#{contributor.login}", index: "#{i+1}" %>  </li>
         <% end %>
     </ul>
 <% end %>
+
+<%= link_to "Download(zip)", controller: "main_page", action: "download", format: :zip, names: @names %>
