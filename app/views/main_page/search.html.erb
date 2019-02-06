@@ -1,5 +1,12 @@
+
+  <%= form_tag("/search", method: "get", class: 'form-inline') do %>
+        <%= text_field_tag :q, nil, class: 'form-control', value: params[:q] %>
+        <%= submit_tag "Search", class: 'form-control btn btn-primary' %>
+
+  <% end %> 
+
 <% if @repo %>
-    <h2><span class="glyphicon glyphicon-search" aria-hidden="true"></span><%= @repo.name %></h2>
+    <h2>Results</h2>
     <ul>
         <% @contributors.each_with_index do |contributor, i| %>
             <li><%= contributor.login %> <%= link_to "Download pdf", controller: "main_page", action: "download", format: :pdf, name: "#{contributor.login}", index: "#{i+1}" %>  </li>

@@ -1,6 +1,14 @@
-<h1>start</h1>
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<div class="jumbotron text-center">
+  <div class="row">
+    <%= form_tag("/search", method: "get", class: 'form-horizontal') do %>
+    <div class = "form-group col-md-12"> 
+          <%= text_field_tag :q, nil, class: 'form-control form-main' %>
+    </div>
+  </div> 
+  <div class="row">
+    <div class = "form-group col-md-offset-4 col-md-4">     
+        <%= submit_tag "Search", class: 'form-control form-main btn btn-primary btn-lg' %>  
+    </div> 
+    <% end %>
+  </div>
+</div>

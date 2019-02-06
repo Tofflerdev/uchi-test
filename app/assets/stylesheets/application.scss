@@ -13,3 +13,25 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ body {
+    padding-top: 30px;
+  }
+  .form-main{
+      min-height: 51px;
+  }
+  input.form-main{
+      font-size: 18px;
+  }
+  h2{
+      padding-top: 15px;
+      padding-bottom: 15px;
+      padding-left: 0;
+      margin-left: 0;
+  }
+
+  ul{
+      list-style: none;
+      padding: 0;
+  }
+

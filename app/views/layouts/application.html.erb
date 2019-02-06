@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UchiTest</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +13,10 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
+    <div class="container">
+      
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
   </body>
 </html>
