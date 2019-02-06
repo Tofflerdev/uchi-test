@@ -20,8 +20,30 @@ class MainPageController < ApplicationController
                 pdf = DiplomaPdf.new(params[:name], params[:index]) 
                 send_data pdf.render,
                   filename: "diploma_#{params[:index]}.pdf",
-                  type: 'application/pdf',
-                  disposition: 'inline'
+                  type: 'application/pdf'
+            end
+            format.zip do |format|
+                require 'rubygems'
+                require 'zip'
+                @temp = []
+                params[:names].each_with_index do |name, index|
+                    t = Tempfile.new(["#{name}", ".pdf"])
+                    pdf = DiplomaPdf.new(name, "#{index +1}")
+                    t.binmode
+                    t.write pdf.render
+                    t.rewind
+                    @temp << t
+                end
+                zip_stream = Zip::OutputStream.write_buffer do |stream|
+                    @temp.each_with_index do |pdf, index|
+                        stream.put_next_entry("#{index + 1}.pdf")
+                        stream.write IO.read(pdf)
+                    end
+                end
+                zip_stream.rewind
+                send_data zip_stream.read,
+                    filename: "diplomas.zip",
+                    type: 'application/zip'   
             end
         end
     end
